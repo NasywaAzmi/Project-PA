@@ -123,7 +123,7 @@ while True:
     ''')
 
     # Pilihan inputan user
-    Pilihan = int(input('Silahkan masukkan pilihan anda : '))
+    Pilihan = input('Silahkan masukkan pilihan anda : ')
     print()
 
 
