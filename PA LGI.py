@@ -124,6 +124,8 @@ while True:
 
     # Pilihan inputan user
     Pilihan = input('Silahkan masukkan pilihan anda : ')
+    if Pilihan.isnumeric():
+        Pilihan = int(Pilihan)
     print()
 
 
@@ -158,7 +160,7 @@ while True:
     elif Pilihan == 6:
         print(f"Berhasil keluar.")
         break
-
+    
     # Else jika pilihan tidak sesuai 
     else:
         print('Pilihan Tidak Valid Silahkan Masukkan Pilihan Dengan Benar!!!.\n')
