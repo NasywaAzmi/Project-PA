@@ -1,6 +1,9 @@
 import os
 os.system('cls')
 
+#akun1:john,12345
+#akun2:jeane,12345
+
 class video:
     def __init__(self, title):
         self.data = title
@@ -19,7 +22,7 @@ class video:
     def set_next_song(self, next_title):
         self.video = next_title
 
-    # Data Musik
+    # Data Video
     def str(self):
         return str(self.data)
 
@@ -31,8 +34,8 @@ class Playlist:
     def __init__(self):
         self.head = None
 
-    # Buat METHOD add_Musik Membuat Objek video dan Menambahkan Ke Daftar Putar. Metode ini Memiliki 1 Parameter Yaitu TITLE
-    def add_song(self, title):
+    # Buat METHOD add_video Membuat Objek video dan Menambahkan Ke Daftar Putar. Metode ini Memiliki 1 Parameter Yaitu TITLE
+    def add_video(self, title):
         video_baru = video(title)
         video_baru.set_title(title)
         video_baru.set_next_song(self.head)
@@ -52,6 +55,8 @@ class Playlist:
                     index += 1
                     song = song.get_next_song()
             return -1
+
+
 
   #Buat Method remove_song Yang Menghapus video dari Playlist. Method ini Mempunyai Parameter TITLE, yaitu video yang harus di Hapus 
     def remove_song(self, title):
@@ -76,13 +81,13 @@ class Playlist:
         return index
 
 
-    # Method Print_songs,Mencetak Playlist Bernomor di Playlist
+    # Method print_video,Mencetak Playlist Bernomor di Playlist
     # Contoh:
     # 1. Judul video  1
     # 2. Judul video 2
     # 3. Judul video 3
 
-    def print_songs(self):
+    def print_video(self):
         index = 1
         song = self.head
         if song == None:
@@ -106,6 +111,22 @@ class Playlist:
                 n = n.repr()
 
 playlist = Playlist()
+users = {
+    "john": "12345",
+    "jeane": "12345"
+}
+
+# Login user
+while True:
+    username = input("Masukkan username: ")
+    password = input("Masukkan password: ")
+    
+    if username in users and users[username] == password:
+        print("Login berhasil!")
+        break
+    else:
+        print("Username atau password salah.")
+
 while True:
     # Pilihan menu awal
     print('''
@@ -132,11 +153,11 @@ while True:
     # Pilihan 1: Untuk Menambahkan video Pada Playlist
     if Pilihan == 1:
         pilihan2 = input('Judul Video yang ingin ditambahkan : ')
-        playlist.add_song(pilihan2)
+        playlist.add_video(pilihan2)
         
     # Pilihan 2: Untuk melihat playlist
     elif Pilihan == 2:
-        playlist.print_songs()
+        playlist.print_video()
 
     # Pilihan 3: Untuk Menghapus video Pada Playlist
     elif Pilihan == 3:
